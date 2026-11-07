@@ -31,10 +31,12 @@ public class Char {
     public String getInfo() {
         String formattedSkill = skill.replace(";", "\n       -");
     
-        return "Name: " + name + 
+        return "===========================================" +
+            "\nName: " + name + 
            "\nRarity: " + rarity + 
            "\nTrace: " + formattedSkill + 
-           "\nDescription: " + description;
+           "\nDescription: " + description +
+           "\n===========================================" ;
     }
 
 }
