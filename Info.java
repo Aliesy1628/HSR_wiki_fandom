@@ -38,7 +38,7 @@ public class Info {
             characters.clear();
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split("\\|");
                 if (parts.length == 4) {
                     String name = parts[0].trim();
                     String rarity = parts[1].trim();
