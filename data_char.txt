@@ -1,1 +1,1 @@
-Elysia,5 Star,Skill1,My
+Elysia,5 Star,Skill 1: Tes1;Skill 2:Tes2,My

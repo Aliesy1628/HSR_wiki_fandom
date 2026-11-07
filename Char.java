@@ -29,7 +29,12 @@ public class Char {
     }
 
     public String getInfo() {
-        return "Name: " + name + "\nRarity: " + rarity + "\nSkill: " + skill + "\nDescription: " + description;
+        String formattedSkill = skill.replace(";", "\n       ");
+    
+        return "Name: " + name + 
+           "\nRarity: " + rarity + 
+           "\nSkill: " + formattedSkill + 
+           "\nDescription: " + description;
     }
 
 }
