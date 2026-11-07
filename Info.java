@@ -7,7 +7,7 @@ import java.util.List;
 public class Info {
 
     private List<Char> characters;
-    
+
     public String file_char = "data_char.txt";
 
     public List getCharacters() {
@@ -27,10 +27,9 @@ public class Info {
         return null;
     }
 
-    public void tampilkanInfoCharacter() {
+    public void charList() {
         for (Char c : characters) {
-            System.out.println(c.getInfo());
-            System.out.println("--------------------");
+            System.out.println("- " + c.getName());
         }
     }
 

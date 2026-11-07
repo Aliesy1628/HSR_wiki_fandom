@@ -1,1 +1,3 @@
-Elysia,5 Star,Skill 1: Tes1;Skill 2:Tes2,My
+Elysia,5 Star,Ultimate : ;Skill : ; Talent : ,My
+Cyrene,5 Star,Ultimate : ;Skill : ; Talent : ,Cyrene
+Castorice,5 Star,Ultimate : ;Skill : ; Talent : ,Castorice

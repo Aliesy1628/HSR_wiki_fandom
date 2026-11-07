@@ -5,7 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Info info = new Info();
         info.loadCharactersFromFile();
-        
+
         boolean looping = true;
 
         while (looping) {
@@ -19,26 +19,32 @@ public class Main {
             }
 
             switch (pilihan) {
-                case 1 :
+                case 1:
                     searchCharacter(scanner, info);
                     break;
-                case 2 :
-                    info.tampilkanInfoCharacter();
+                case 2:
+                    info.charList();
                     break;
-                case 3 :
+                case 3:
                     looping = false;
                     break;
-                default :
+                default:
                     System.out.println("Pilihan tidak valid. Silakan masukkan angka menu yang benar.");
             }
         }
-        
+
     }
 
     private static void searchCharacter(Scanner scanner, Info info) {
-            System.out.print("Masukkan nama karakter yang ingin dicari: ");
-            String searchName = scanner.nextLine();
-            info.cariCharacter(searchName);
+        System.out.print("Masukkan nama karakter yang ingin dicari: ");
+        String searchName = scanner.nextLine();
+        Char foundCharacter = info.cariCharacter(searchName);
+        if (foundCharacter != null) {
+            System.out.println("Karakter ditemukan:");
+            System.out.println(foundCharacter.getInfo());
+        } else {
+            System.out.println("Karakter tidak ditemukan.");
+        }
     }
 
     private static void displayMenu() {
