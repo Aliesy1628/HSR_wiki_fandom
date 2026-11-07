@@ -1,3 +1,4 @@
 Cyrene|5 Star|-Ultimate : Verse Vow;Skill    : Bloom, Elysium of Beyond;Talent   : Hearts Gather as One|Cyrene
 Castorice|5 Star|-Ultimate : Doomshriek, Dawn's Chime;Skill    : Silence, Wraithfly's Caress;Talent   : Desolation Across Palms|Castorice
-Hyacine|5 Star|-Ultimate : ;Skill    : ;Talent   : |Hyacine
+Hyacine|5 Star|-Ultimate : We Who Fly Into Twilight;Skill    : Love Over the Rainbow;Talent   : First Light Heals the World|Hyacine
+Evernight|5 Star|-Ultimate : O Wakeful World, Goodnight;Skill    : Day Gently Lips;Talent   : With Me, This Night|Evernight
