@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Info info = new Info();
-        info.loadCharactersFromFile();
+        info.loadStoryFromFile();
+        info.loadCharactersFromFile(); 
 
         boolean looping = true;
 
@@ -32,29 +33,17 @@ public class Main {
                     while (loopingStory) {
                         switch (pilihan) {
                             case 1:
-                                System.out.println("Story Astral Express");
+                                displayStory();
                                 break;
                             case 2:
-                                System.out.println("Story Jarilo-VI");
+                                searchStory(scanner, info);
                                 break;
                             case 3:
-                                System.out.println("Story Xianzhou");
-                                break;
-                            case 4:
-                                System.out.println("Story Penacony");
-                                break;
-                            case 5:
-                                System.out.println("Story Amphoreus");
-                                break;
-                            case 6:
-                                System.out.println("Story Planarcadia");
-                                break;
-                            case 7:
                                 loopingStory = false;
                                 break;
                             default:
                                 System.out.println("Pilihan tidak valid. Silakan masukkan angka menu yang benar.");
-                        } if (loopingStory) {
+                            } if (loopingStory) {
                             displayMenuStory();
                             try {
                                 pilihan = Integer.parseInt(scanner.nextLine().trim());
@@ -123,6 +112,18 @@ public class Main {
         }
     }
 
+    public static void searchStory(Scanner scanner, Info info) {
+        System.out.print("Masukkan nama story yang ingin dicari: ");
+        String searchName = scanner.nextLine();
+        Story foundStory = info.cariStory(searchName);
+        if (foundStory != null) {
+            System.out.println("Story ditemukan:");
+            System.out.println(foundStory.getInfo());
+        } else {
+            System.out.println("Story tidak ditemukan.");
+        }
+    }
+
     private static void displayMenuChar() {
         System.out.println("=============================");
         System.out.println("Menu:");
@@ -141,7 +142,7 @@ public class Main {
         System.out.print("Masukkan pilihan Anda: ");
     }
 
-    private static void displayMenuStory() {
+    private static void displayStory() {
         System.out.println("=============================");
         System.out.println("Menu Rekap Story:");
         System.out.println("1. Story Astral Express");
@@ -151,6 +152,14 @@ public class Main {
         System.out.println("5. Story Amphoreus");
         System.out.println("6. Story Planarcadia");
         System.out.println("7. Kembali ke Menu Utama");
+    }
+
+    private static void displayMenuStory() {
+        System.out.println("=============================");
+        System.out.println("Menu Rekap Story:");
+        System.out.println("1. tampilkan list Story");
+        System.out.println("2. pilih story");
+        System.out.println("3. Kembali ke Menu Utama");
         System.out.print("Masukkan pilihan Anda: ");
     }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 public class Info {
 
     private List<Char> characters;
+    private List<Story> stories;
 
     public String file_char = "data_char.txt";
 
@@ -14,8 +15,22 @@ public class Info {
         return characters;
     }
 
+    public List getStory() {
+        return stories;
+    }
+
     public Info() {
         this.characters = new ArrayList<>();
+        this.stories = new ArrayList<>();
+    }
+
+    public Story cariStory(String name) {
+        for (Story s : stories) {
+            if (s.getName().equalsIgnoreCase(name)) {
+                return s;
+            }
+        }
+        return null;
     }
 
     public Char cariCharacter(String name) {
@@ -52,4 +67,32 @@ public class Info {
             System.err.println("Error reading file: " + e.getMessage());
         }
     }
+
+    public void loadStoryFromFile() {
+    try (BufferedReader br = new BufferedReader(new FileReader("data_story.txt"))) {
+        stories.clear();
+        String line;
+        
+        while ((line = br.readLine()) != null) {
+            String[] parts = line.split("\\|", 2);
+            
+            if (parts.length >= 2) {
+                String name = parts[0].trim();
+                StringBuilder descBuilder = new StringBuilder();
+                descBuilder.append(parts[1].trim());
+
+                while ((line = br.readLine()) != null) {
+                    if (line.trim().isEmpty()) break;
+                    descBuilder.append(" ").append(line.trim());
+                }
+                
+                String description = descBuilder.toString();
+                Story story = new Story(name, description);
+                stories.add(story);
+            }
+        }
+    } catch (IOException e) {
+        System.err.println("Error reading file: " + e.getMessage());
+    }
+}
 }
