@@ -69,30 +69,30 @@ public class Info {
     }
 
     public void loadStoryFromFile() {
-    try (BufferedReader br = new BufferedReader(new FileReader("data_story.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("data_story.txt"))) {
         stories.clear();
         String line;
         
-        while ((line = br.readLine()) != null) {
-            String[] parts = line.split("\\|", 2);
-            
-            if (parts.length >= 2) {
-                String name = parts[0].trim();
-                StringBuilder descBuilder = new StringBuilder();
-                descBuilder.append(parts[1].trim());
-
-                while ((line = br.readLine()) != null) {
-                    if (line.trim().isEmpty()) break;
-                    descBuilder.append(" ").append(line.trim());
-                }
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\\|", 2);
                 
-                String description = descBuilder.toString();
-                Story story = new Story(name, description);
-                stories.add(story);
+                if (parts.length >= 2) {
+                    String name = parts[0].trim();
+                    StringBuilder descBuilder = new StringBuilder();
+                    descBuilder.append(parts[1].trim());
+
+                    while ((line = br.readLine()) != null) {
+                        if (line.trim().isEmpty()) break;
+                        descBuilder.append(" ").append(line.trim());
+                    }
+                    
+                    String description = descBuilder.toString();
+                    Story story = new Story(name, description);
+                    stories.add(story);
+                }
             }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
         }
-    } catch (IOException e) {
-        System.err.println("Error reading file: " + e.getMessage());
     }
-}
 }
